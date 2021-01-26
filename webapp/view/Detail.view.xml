@@ -3,121 +3,59 @@
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns:m="sap.m"
 		xmlns:f="sap.f"
-		xmlns:form="sap.ui.layout.form">
-
-	<ObjectPageLayout id="ObjectPageLayout"
-					 showTitleInHeaderContent="true"
-					alwaysShowContentHeader="false"
-					preserveHeaderStateOnScroll="false"
-					headerContentPinnable="true"
-					isChildPage="true"
-					upperCaseAnchorBar="false">
-				<headerTitle>
-					<ObjectPageDynamicHeaderTitle>
-						<expandedHeading>
-							<m:Title text="{Name}" wrapping="true" class="sapUiSmallMarginEnd"/>
-						</expandedHeading>
-
-						<snappedHeading>
-							<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
-								<m:FlexBox wrap="NoWrap" fitContainer="true" alignItems="Center" class="sapUiTinyMarginEnd">
-									<m:Title text="{Name}" wrapping="true" class="sapUiTinyMarginEnd"/>
-								</m:FlexBox>
-							</m:FlexBox>
-						</snappedHeading>
-
-						<navigationActions>
-							<m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" id="enterFullScreenBtn" tooltip="Enter Full Screen Mode" visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"/>
-							<m:OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" id="exitFullScreenBtn" tooltip="Exit Full Screen Mode" visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/>
-							<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" press="handleClose"  tooltip="Close column" visible="{= ${/actionButtonsInfo/midColumn/closeColumn} !== null }"/>
-						</navigationActions>
-
-					</ObjectPageDynamicHeaderTitle>
-				</headerTitle>
-
-				<headerContent>
-					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
-                    <m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Product ID"/>
-							<m:Text text="{ProductId}"/>
-						</m:VBox>
-						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Status"/>
-							<m:Text text="{= ${Status} === 1 ? 'Validated' : ${Status} === 2 ? 'Obsolete' : 'To be Validated'}"/>
-						</m:VBox>
-						<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-							<m:Label text="Price"/>
-							<m:ObjectNumber number=" {Price} {Currency}" emphasized="false"/>
-						</m:VBox>
-					</m:FlexBox>
-				</headerContent>
-
-		<sections>
-			<ObjectPageSection title="Product Details">
-				<subSections>
-					<ObjectPageSubSection>
-						<blocks>
-							<form:SimpleForm
-								maxContainerCols="2"
-								editable="false"
-								layout="ResponsiveGridLayout"
-								labelSpanL="12"
-								labelSpanM="12"
-								emptySpanL="0"
-								emptySpanM="0"
-								columnsL="1"
-								columnsM="1">
-								<form:content>
-                                    <m:Label text="Product Category"/>
-									<m:Text text="{Category}"/>
-									<m:Label text="Supplier ID"/>
-									<m:Text text="{SupplierId}"/>
-									<m:Label text="Product Name"/>
-									<m:Text text="{Name}"/>
-									<m:Label text="Product Description"/>
-									<m:Text text="{Description}"/>
-                                    <m:Label text="Price"/>
-									<m:Text text="{Price} {Currency}"/>
-                                    <m:Label text="Unit Of Measure"/>
-									<m:Text text="{Uom}"/>
-                                    <m:Label text="Weight"/>
-									<m:Text text="{Weight} {WeightUnit}"/>
-								</form:content>
-							</form:SimpleForm>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-            <ObjectPageSection title="Dimensions">
-				<subSections>
-					<ObjectPageSubSection>
-						<blocks>
-							<form:SimpleForm
-								maxContainerCols="2"
-								editable="false"
-								layout="ResponsiveGridLayout"
-								labelSpanL="12"
-								labelSpanM="12"
-								emptySpanL="0"
-								emptySpanM="0"
-								columnsL="1"
-								columnsM="1">
-								<form:content>
-                                    <m:Label text="Width"/>
-									<m:Text text="{Width}"/>
-									<m:Label text="Depth"/>
-									<m:Text text="{Depth}"/>
-									<m:Label text="Height"/>
-									<m:Text text="{Height}"/>
-									<m:Label text="Unit"/>
-									<m:Text text="{DimUnit}"/>
-								</form:content>
-							</form:SimpleForm>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-		</sections>
-	</ObjectPageLayout>
+        xmlns:semantic="sap.f.semantic"
+		xmlns:form="sap.ui.layout.form"
+        xmlns:layout="sap.ui.layout">
+    
+    
+	<m:NavContainer id="navContainer">
+    <m:pages>
+            <f:DynamicPage id="dynamicPage" toggleHeaderOnTitleClick="{/titleClickable}" class="sapUiNoContentPadding" showFooter="true"
+                fitContent="true">
+                <!-- DynamicPage Title -->
+                <f:title>
+                    <f:DynamicPageTitle>
+                        <f:heading>
+                            <m:Title text="{Name}" wrapping="true" class="sapUiSmallMarginEnd"/>
+                        </f:heading>
+                    </f:DynamicPageTitle>
+                </f:title>
+                <f:header>
+                <f:DynamicPageHeader pinnable="true">
+					<layout:HorizontalLayout allowWrapping="true">
+						<layout:VerticalLayout class="sapUiMediumMarginEnd">
+							<ObjectAttribute title="Location" text="Warehouse A"/>
+							<ObjectAttribute title="Halway" text="23L"/>
+							<ObjectAttribute title="Rack" text="34"/>
+						</layout:VerticalLayout>
+						<layout:VerticalLayout>
+							<ObjectAttribute title="Availability"/>
+							<ObjectStatus text="In Stock" state="Success" />
+						</layout:VerticalLayout>
+					</layout:HorizontalLayout>
+				</f:DynamicPageHeader>
+                </f:header>
+                <!-- DynamicPage Content -->
+                <f:content>
+                    <form:SimpleForm>
+                    </form:SimpleForm>
+                </f:content>
+                <!-- DynamicPage Footer -->
+                <f:footer>
+                    <m:OverflowToolbar>
+                        <m:Button icon="sap-icon://alert" text="{=${message>/}.length} {i18n>errordetails}" visible="{=${message>/}.length > 0}" type="Emphasized"
+                            press="onMessagePopoverPress"></m:Button>
+                        <m:ToolbarSpacer/>
+                        <m:Button type="Reject" text="Delete" press="onDeletePress" />
+                        <m:Button type="Default" text="Save" press="onSavePress" />
+                        <m:Button type="Default" text="Save as draft" press="onSaveDraftPress" />
+                        <m:Button type="Emphasized" text="Submit" press="onSubmitPress" />
+                        <m:Button type="Accept" text="Validate" press="onAcceptPress" />
+                        <m:Button type="Reject" text="Reject" press="onRejectPress" />
+                    </m:OverflowToolbar>
+                </f:footer>
+            </f:DynamicPage>
+        </m:pages>
+        </m:NavContainer>
     
 </mvc:View>

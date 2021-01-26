@@ -2,13 +2,13 @@
 	controllerName="be.ap.Eindopdracht.controller.Master"
 	xmlns="sap.m"
 	xmlns:semantic="sap.f.semantic"
-    xmlns:semanticf="sap.f.semantic"
 	xmlns:mvc="sap.ui.core.mvc">
 
 	<semantic:SemanticPage
 		id="masterPage"
 		preserveHeaderStateOnScroll="true"
-		toggleHeaderOnTitleClick="false">
+		toggleHeaderOnTitleClick="false"
+        showFooter="true">
 		<semantic:titleHeading>
 			<Title
 				id="masterPageTitle"
@@ -82,9 +82,11 @@
                         </ObjectListItem>
 				</items>
 			</List>
-		</semantic:content>
-
-
+		</semantic:content>      
+        <semantic:footerCustomActions>
+			<Button 
+            icon="sap-icon://add"
+            text="New" />
+		</semantic:footerCustomActions>
 	</semantic:SemanticPage>
-    
 </mvc:View>
