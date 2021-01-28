@@ -109,7 +109,7 @@
 									<m:Label text="Product Description"/>
                                     <m:Input value="{Description}"/>
                                     <m:Label text="Price"/>
-                                    <m:Input value="{Price}"/><m:Text text="EUR"/>
+                                    <m:Input description="EUR" value="{Price}"/>
                                     <m:Label text="Unit Of Measure"/>
                                     <m:Select selectedKey="{Uom}">
                                         <m:items>
