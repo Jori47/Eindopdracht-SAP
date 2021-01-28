@@ -81,8 +81,8 @@
                                     <m:Input value="{Weight}"/>
                                     <m:SegmentedButton selectedKey="Kilograms" class="sapUiSmallMarginBottom">
                                     <m:items>
-                                        <m:SegmentedButtonItem text="Kilograms" key="WeightUnit" />
-                                        <m:SegmentedButtonItem text="Grams" />
+                                        <m:SegmentedButtonItem text="Kilograms" press="convertToKiloGrams" />
+                                        <m:SegmentedButtonItem text="Grams" press="convertToGrams" />
                                     </m:items>
                                 </m:SegmentedButton>
 								</form:content>
@@ -124,10 +124,10 @@
        <footer>
 			<m:OverflowToolbar>
 				<m:ToolbarSpacer/>
-                <m:Button text="Save" type="Emphasized"/>
-				<m:Button text="Cancel"/>
-                <m:Button icon="sap-icon://edit" text="Edit"/>
-				<m:Button type="Reject" icon="sap-icon://delete" text="Delete"/>
+                <m:Button text="Save" type="Emphasized" press="saveProduct"/>
+				<m:Button text="Cancel" press="cancelProduct"/>
+                <m:Button icon="sap-icon://edit" text="Edit" press="editProduct"/>
+				<m:Button type="Reject" icon="sap-icon://delete" text="Delete" press="deleteProduct"/>
 				
 			</m:OverflowToolbar>
 		</footer>

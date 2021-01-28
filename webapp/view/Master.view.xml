@@ -85,8 +85,7 @@
 		</semantic:content>      
         <semantic:footerCustomActions>
 			<Button 
-            icon="sap-icon://add"
-            text="New" />
+            icon="sap-icon://add" text="New" press="createProduct"/>
 		</semantic:footerCustomActions>
 	</semantic:SemanticPage>
 </mvc:View>

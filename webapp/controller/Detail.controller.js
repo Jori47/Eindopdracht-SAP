@@ -36,8 +36,58 @@ sap.ui.define([
 
 		/* =========================================================== */
 		/* event handlers                                              */
-		/* =========================================================== */
+        /* =========================================================== */
+        
+        saveProduct : function (oEvent) {
 
+            //Save created product.
+            console.log("test"); 
+            
+                 
+        },
+
+        cancelProduct : function (oEvent) {
+
+            //Cancel this action.
+            console.log("test"); 
+
+                 
+        },
+
+        editProduct : function (oEvent) {
+
+            //Edit selected product.
+            console.log("test"); 
+
+                 
+        },
+
+        deleteProduct : function (oEvent) {
+
+            //delete selected product.
+            console.log("test"); 
+
+                 
+        },
+
+        convertToGrams : function (oEvent) {
+
+            //convert weight from kg to gram by * 1000.
+            console.log("test"); 
+            
+                 
+        },
+
+        convertToKiloGrams : function (oEvent) {
+
+            //convert weight from gram to kg by / 1000.
+            console.log("test"); 
+            
+                 
+        },
+            
+
+        
 		/**
 		 * Event handler when the share by E-Mail button has been clicked
 		 * @public

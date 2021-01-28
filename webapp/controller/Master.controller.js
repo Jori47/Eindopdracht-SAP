@@ -78,8 +78,15 @@ sap.ui.define([
 
 		/* =========================================================== */
 		/* event handlers                                              */
-		/* =========================================================== */
+        /* =========================================================== */
+        
+         createProduct : function (oEvent) {
 
+            //navigate to empty form in detail view.
+            console.log("test"); 
+
+                 
+		},
 		/**
 		 * After list data is available, this handler method updates the
 		 * master list counter
