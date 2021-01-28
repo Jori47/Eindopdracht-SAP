@@ -1,4 +1,4 @@
-<mvc:View displayBlock="true" controllerName="be.ap.Eindopdracht.controller.Detail" height="100%"
+<mvc:View xmlns:core="sap.ui.core" displayBlock="true" controllerName="be.ap.Eindopdracht.controller.Detail" height="100%"
 		xmlns="sap.uxap"
 		xmlns:mvc="sap.ui.core.mvc"
 		xmlns:m="sap.m"
@@ -55,28 +55,67 @@
 					<ObjectPageSubSection>
 						<blocks>
 							<form:SimpleForm
-                                editable="true"
+                                editable="false"
                                 layout="ResponsiveGridLayout"
-                                labelSpanL="12"
-								labelSpanM="12"
+                                labelSpanXL="4"
+                                labelSpanL="4"
+                                labelSpanM="12"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
                                 emptySpanXL="0"
-                                emptySpanL="4"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                emptySpanS="0"
                                 columnsXL="2"
-                                columnsL="1"
-                                columnsM="1">
+                                columnsL="2"
+                                columnsM="1"
+                                singleContainerFullSize="false">
 								<form:content>
                                     <m:Label text="Product Category"/>
-                                    <m:Input value="{Category}"/>
+                                    <m:Select selectedKey="{Category}">
+                                        <m:items>
+                                            <core:Item text="Laptops" key="Laptops"/>
+                                            <core:Item text="Accessories" key="Accessories"/>
+                                            <core:Item text="Flat Screen Monitors" key="Flat Screen Monitors"/>
+                                            <core:Item text="Printers" key="Printers"/>
+                                            <core:Item text="Multifunction Printers" key="Multifunction Printers"/>
+                                            <core:Item text="Keyboards" key="Keyboards"/>
+                                            <core:Item text="Mice" key="Mice"/>
+                                            <core:Item text="Mousepads" key="Mousepads"/>
+                                            <core:Item text="Software" key="Software"/>
+                                            <core:Item text="Servers" key="Servers"/>
+                                            <core:Item text="Desktop Computers" key="Desktop Computers"/>
+                                            <core:Item text="Computer System Accessories" key="Computer System Accessories"/>
+                                            <core:Item text="Smartphones and Tablets" key="Smartphones and Tablets"/>
+                                        </m:items>
+                                    </m:Select>
 									<m:Label text="Supplier ID"/> 
-                                    <m:Input value="{SupplierId}"/>
+                                    <m:Select selectedKey="{SupplierId}">
+                                        <m:items>
+                                            <core:Item text="HP" key="1"/>
+                                            <core:Item text="Apple" key="2"/>
+                                            <core:Item text="Samsung" key="3"/>
+                                            <core:Item text="AOC" key="4"/>
+                                            <core:Item text="Canon" key="5"/>
+                                            <core:Item text="Dell" key="6"/>
+                                            <core:Item text="Logitec" key="7"/>
+                                            <core:Item text="Microsoft" key="8"/>
+                                            <core:Item text="Tesla" key="9"/>
+                                            <core:Item text="Huts" key="10"/>
+                                        </m:items>
+                                    </m:Select>
 									<m:Label text="Product Name"/>
                                     <m:Input value="{Name}"/>
 									<m:Label text="Product Description"/>
                                     <m:Input value="{Description}"/>
                                     <m:Label text="Price"/>
-                                    <m:Input value="{Price}"/><m:Text text="{Currency}"/>
+                                    <m:Input value="{Price}"/><m:Text text="EUR"/>
                                     <m:Label text="Unit Of Measure"/>
-                                    <m:Input value="{Uom}"/>
+                                    <m:Select selectedKey="{Uom}">
+                                        <m:items>
+                                            <core:Item text="PC" key="PC"/>
+                                        </m:items>
+                                    </m:Select>
                                     <m:Label text="Weight"/>
                                     <m:Input value="{Weight}"/>
                                     <m:SegmentedButton selectedKey="Kilograms" class="sapUiSmallMarginBottom">
@@ -96,15 +135,21 @@
 					<ObjectPageSubSection>
 						<blocks>
 							<form:SimpleForm
-								editable="true"
+                                editable="false"
                                 layout="ResponsiveGridLayout"
-                                labelSpanL="12"
-								labelSpanM="12"
+                                labelSpanXL="4"
+                                labelSpanL="4"
+                                labelSpanM="12"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
                                 emptySpanXL="0"
-                                emptySpanL="4"
+                                emptySpanL="0"
+                                emptySpanM="0"
+                                emptySpanS="0"
                                 columnsXL="2"
-                                columnsL="1"
-                                columnsM="1">
+                                columnsL="2"
+                                columnsM="1"
+                                singleContainerFullSize="false">
 								<form:content>
                                     <m:Label text="Width"/>
                                     <m:Input value="{Width}"/>
@@ -113,7 +158,12 @@
 									<m:Label text="Height"/>
                                     <m:Input value="{Height}"/>
 									<m:Label text="Unit"/>
-                                    <m:Input value="{DimUnit}"/>
+                                    <m:Select selectedKey="{DimUnit}">
+                                        <m:items>
+                                            <core:Item text="CM" key="CM"/>
+                                        </m:items>
+                                    </m:Select>
+                                    <!-- <m:Input value="{DimUnit}"/> -->
 								</form:content>
 							</form:SimpleForm>
 						</blocks>
@@ -128,7 +178,6 @@
 				<m:Button text="Cancel" press="cancelProduct"/>
                 <m:Button icon="sap-icon://edit" text="Edit" press="editProduct"/>
 				<m:Button type="Reject" icon="sap-icon://delete" text="Delete" press="deleteProduct"/>
-				
 			</m:OverflowToolbar>
 		</footer>
 	</ObjectPageLayout>
