@@ -54,8 +54,8 @@
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
-							<form:SimpleForm
-                                editable="false"
+							<form:SimpleForm 
+                            editable="false"
                                 layout="ResponsiveGridLayout"
                                 labelSpanXL="4"
                                 labelSpanL="4"
@@ -109,7 +109,10 @@
 									<m:Label text="Product Description"/>
                                     <m:Input value="{Description}"/>
                                     <m:Label text="Price"/>
-                                    <m:Input description="EUR" value="{Price}"/>
+                                    <m:Input id="price" value="{parts: [{path:'Price'},{path:'Currency'}],
+                                                                type: 'sap.ui.model.type.Currency',
+                                                                formatOptions: {showMeasure: false}}"
+                                                        description="{Currency}"/>
                                     <m:Label text="Unit Of Measure"/>
                                     <m:Select selectedKey="{Uom}">
                                         <m:items>
@@ -117,7 +120,9 @@
                                         </m:items>
                                     </m:Select>
                                     <m:Label text="Weight"/>
-                                    <m:Input value="{Weight}"/>
+                                    <m:Input value="{parts: [{path:'Weight'},{path:'Currency'}],
+                                                                type: 'sap.ui.model.type.Currency',
+                                                                formatOptions: {showMeasure: false}}"/>
                                     <m:SegmentedButton selectedKey="Kilograms" class="sapUiSmallMarginBottom">
                                     <m:items>
                                         <m:SegmentedButtonItem text="Kilograms" press="convertToKiloGrams" />
@@ -152,11 +157,17 @@
                                 singleContainerFullSize="false">
 								<form:content>
                                     <m:Label text="Width"/>
-                                    <m:Input value="{Width}"/>
+                                    <m:Input value="{parts: [{path:'Width'},{path:'Currency'}],
+                                                                type: 'sap.ui.model.type.Currency',
+                                                                formatOptions: {showMeasure: false}}"/>
 									<m:Label text="Depth"/>
-                                    <m:Input value="{Depth}"/>
+                                    <m:Input value="{parts: [{path:'Depth'},{path:'Currency'}],
+                                                                type: 'sap.ui.model.type.Currency',
+                                                                formatOptions: {showMeasure: false}}"/>
 									<m:Label text="Height"/>
-                                    <m:Input value="{Height}"/>
+                                    <m:Input value="{parts: [{path:'Height'},{path:'Currency'}],
+                                                                type: 'sap.ui.model.type.Currency',
+                                                                formatOptions: {showMeasure: false}}"/>
 									<m:Label text="Unit"/>
                                     <m:Select selectedKey="{DimUnit}">
                                         <m:items>
