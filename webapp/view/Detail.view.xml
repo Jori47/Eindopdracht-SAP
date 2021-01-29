@@ -107,7 +107,7 @@
 									<m:Label text="Product Name"/>
                                     <m:Input value="{Name}"/>
 									<m:Label text="Product Description"/>
-                                    <m:Input value="{Description}"/>
+                                    <m:TextArea id="description" value="{Description}" growing="false" height="70px" width="100%"/>
                                     <m:Label text="Price"/>
                                     <m:Input id="price" value="{parts: [{path:'Price'},{path:'Currency'}],
                                                                 type: 'sap.ui.model.type.Currency',
